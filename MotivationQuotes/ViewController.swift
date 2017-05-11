@@ -8,20 +8,30 @@
 
 import UIKit
 import Alamofire
+import UserNotifications
 
 
 
+@available(iOS 10.0, *)
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     var quotes: [[String:AnyObject]] = [[String:AnyObject]]()
+    
+    
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        moodAlert()
         
         Alamofire.request("https://apimk.com/motivationalquotes?get_all_quote=yes").responseJSON { response in
           
@@ -33,9 +43,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print(error)
                 }
             }
+        
+        
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerLocal))
+     
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(scheduleLocal))
+        
+      
         }
     
-
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,7 +82,69 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         navigationController?.pushViewController(myVC, animated: true)
         
         }
-
+    
+    @available(iOS 10.0, *)
+    func registerLocal() {
+        let center = UNUserNotificationCenter.current
+        
+        center().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                print("Yay!")
+            } else {
+                print("D'oh")
+            }
+        }
     }
+    
+    
+ 
+    @available(iOS 10.0, *)
+    func scheduleLocal() {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        let content = UNMutableNotificationContent()
+        content.title = "Need some motivation?"
+        content.body = "Somehow get quote here"
+        content.categoryIdentifier = "details"
+        content.userInfo = ["quotes": "fizzbuzz"]
+        content.sound = UNNotificationSound.default()
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 6
+        dateComponents.minute = 52
+       //let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        center.add(request)
+        
+        
+        
+    }
+
+    func moodAlert() {
+        
+        let alert = UIAlertController(title: "Good Morning, How are you feeling today?", message: "Please choose a mood.", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Happy", style: .default) { (action) in
+            Alamofire.request("https://apimk.com/motivationalquotes?get_all_quote=yes").responseJSON { response in
+                
+                switch response.result {
+                case .success:
+                    self.quotes = response.result.value as! [[String:AnyObject]]
+                    self.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+                
+            }
+            
+        }
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
+
+}
 
 
