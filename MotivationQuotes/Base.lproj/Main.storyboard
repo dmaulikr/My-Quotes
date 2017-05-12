@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Daily Motivation-->
+        <!--Motivation-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MotivationQuotes" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,7 +114,13 @@
                             <constraint firstItem="9iw-f9-paD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zNb-8B-KM7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Daily Motivation" id="pRV-Ke-Arh"/>
+                    <navigationItem key="navigationItem" title="Motivation" id="pRV-Ke-Arh">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="avb-Zt-MBl">
+                            <connections>
+                                <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="KR7-M9-doQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="mLt-JT-fNi" id="sFz-Ga-iRj"/>
                         <outlet property="tableView" destination="9iw-f9-paD" id="9Sx-Sb-Wv0"/>
@@ -124,6 +130,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="579.375" y="107.74647887323944"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="BRq-1X-g9m">
+            <objects>
+                <tableViewController storyboardIdentifier="settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FQR-DR-NUp" customClass="SettingsTableViewController" customModule="MotivationQuotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" rowHeight="66" sectionHeaderHeight="18" sectionFooterHeight="18" id="Na9-8v-rmZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="separatorColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settings" rowHeight="66" id="eX8-Sn-Rwc" customClass="SettingsTableViewCell" customModule="MotivationQuotes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="320" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eX8-Sn-Rwc" id="u4g-QH-deL">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="65.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loI-Fu-wyk">
+                                            <rect key="frame" x="8" y="23" width="151" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="151" id="FDP-k1-oN3"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="loI-Fu-wyk" firstAttribute="centerY" secondItem="u4g-QH-deL" secondAttribute="centerY" id="3Il-iM-m5F"/>
+                                        <constraint firstItem="loI-Fu-wyk" firstAttribute="leading" secondItem="u4g-QH-deL" secondAttribute="leadingMargin" id="Lch-mv-US8"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="settingsLabel" destination="loI-Fu-wyk" id="UM4-oh-5PN"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FQR-DR-NUp" id="Wyo-cx-wNB"/>
+                            <outlet property="delegate" destination="FQR-DR-NUp" id="Wfk-Gc-ioQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="Ltk-wM-DwQ"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PNZ-vy-lKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2572.5" y="872.53521126760563"/>
+        </scene>
+        <!--Bar Chart View Controller-->
+        <scene sceneID="Yhl-le-4uK">
+            <objects>
+                <viewController storyboardIdentifier="chart" id="wUR-PH-gni" customClass="BarChartViewController" customModule="MotivationQuotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EN7-CE-cZp"/>
+                        <viewControllerLayoutGuide type="bottom" id="13f-rM-c12"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nfq-xJ-ZfF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="fkO-0O-szT" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fkO-0O-szT" firstAttribute="top" secondItem="EN7-CE-cZp" secondAttribute="bottom" id="5PV-lC-q4S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fkO-0O-szT" secondAttribute="trailing" constant="-16" id="Shg-ed-14q"/>
+                            <constraint firstItem="13f-rM-c12" firstAttribute="top" secondItem="fkO-0O-szT" secondAttribute="bottom" id="f29-XM-Ihx"/>
+                            <constraint firstItem="fkO-0O-szT" firstAttribute="leading" secondItem="nfq-xJ-ZfF" secondAttribute="leadingMargin" constant="-16" id="mgq-fI-ZkB"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="barChartView" destination="fkO-0O-szT" id="Y8x-OB-DIF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OgC-fv-XB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3313.125" y="872.53521126760563"/>
         </scene>
         <!--Quote-->
         <scene sceneID="Q2e-hE-ATt">
@@ -218,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejr-Co-4C2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1327.5" y="107.74647887323944"/>
+            <point key="canvasLocation" x="1463" y="107"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="II5-ZG-3J1">
@@ -236,7 +325,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hf3-tI-Bdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78.75" y="108.80281690140845"/>
+            <point key="canvasLocation" x="-304" y="107"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fcp-tw-Yn7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o0S-WV-leJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M87-uO-OmB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FQR-DR-NUp" kind="relationship" relationship="rootViewController" id="QUI-nJ-Gun"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1M0-JB-Xtj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1575" y="872.53521126760563"/>
         </scene>
     </scenes>
 </document>

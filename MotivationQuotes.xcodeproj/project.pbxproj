@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		344A513F1EC5DAF6009B461C /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FE8A5B1EC57C62000CEC53 /* Charts.framework */; };
+		344A51401EC5DAF6009B461C /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34FE8A5B1EC57C62000CEC53 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34FE8A361EC2BD32000CEC53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE8A351EC2BD32000CEC53 /* AppDelegate.swift */; };
 		34FE8A381EC2BD32000CEC53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE8A371EC2BD32000CEC53 /* ViewController.swift */; };
 		34FE8A3B1EC2BD32000CEC53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FE8A391EC2BD32000CEC53 /* Main.storyboard */; };
@@ -15,8 +17,52 @@
 		34FE8A481EC2BF09000CEC53 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FE8A471EC2BF09000CEC53 /* Alamofire.framework */; };
 		34FE8A4A1EC2C417000CEC53 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE8A491EC2C417000CEC53 /* QuoteTableViewCell.swift */; };
 		34FE8A4C1EC34C6E000CEC53 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE8A4B1EC34C6E000CEC53 /* DetailViewController.swift */; };
+		34FE8A4E1EC569D7000CEC53 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE8A4D1EC569D7000CEC53 /* Settings.swift */; };
+		34FE8A501EC56ADD000CEC53 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE8A4F1EC56ADD000CEC53 /* SettingsTableViewController.swift */; };
+		34FE8A521EC56AF1000CEC53 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE8A511EC56AF1000CEC53 /* SettingsTableViewCell.swift */; };
+		34FE8A5E1EC57C6E000CEC53 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FE8A5B1EC57C62000CEC53 /* Charts.framework */; };
+		34FE8A601EC57E20000CEC53 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE8A5F1EC57E20000CEC53 /* BarChartViewController.swift */; };
+		34FE8A621EC5D85F000CEC53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FE8A611EC5D85F000CEC53 /* Foundation.framework */; };
 		F9830E0347058844F48A1E2F /* Pods_MotivationQuotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC5D684E03BA65BA7096360 /* Pods_MotivationQuotes.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		344A51411EC5DAF6009B461C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34FE8A551EC57C62000CEC53 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
+		34FE8A5A1EC57C62000CEC53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34FE8A551EC57C62000CEC53 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		34FE8A5C1EC57C62000CEC53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34FE8A551EC57C62000CEC53 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		344A51431EC5DAF6009B461C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				344A51401EC5DAF6009B461C /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		07BB6334CDAEA1229D5E8777 /* Pods-MotivationQuotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotivationQuotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotivationQuotes/Pods-MotivationQuotes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -30,6 +76,12 @@
 		34FE8A471EC2BF09000CEC53 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Release-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		34FE8A491EC2C417000CEC53 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		34FE8A4B1EC34C6E000CEC53 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		34FE8A4D1EC569D7000CEC53 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		34FE8A4F1EC56ADD000CEC53 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		34FE8A511EC56AF1000CEC53 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		34FE8A551EC57C62000CEC53 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		34FE8A5F1EC57E20000CEC53 /* BarChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
+		34FE8A611EC5D85F000CEC53 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		90FB7E70E9617C00B16AE917 /* Pods-MotivationQuotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotivationQuotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotivationQuotes/Pods-MotivationQuotes.release.xcconfig"; sourceTree = "<group>"; };
 		ECC5D684E03BA65BA7096360 /* Pods_MotivationQuotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotivationQuotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -39,6 +91,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34FE8A621EC5D85F000CEC53 /* Foundation.framework in Frameworks */,
+				34FE8A5E1EC57C6E000CEC53 /* Charts.framework in Frameworks */,
+				344A513F1EC5DAF6009B461C /* Charts.framework in Frameworks */,
 				34FE8A481EC2BF09000CEC53 /* Alamofire.framework in Frameworks */,
 				F9830E0347058844F48A1E2F /* Pods_MotivationQuotes.framework in Frameworks */,
 			);
@@ -68,16 +123,30 @@
 		34FE8A341EC2BD32000CEC53 /* MotivationQuotes */ = {
 			isa = PBXGroup;
 			children = (
+				34FE8A551EC57C62000CEC53 /* Charts.xcodeproj */,
 				34FE8A351EC2BD32000CEC53 /* AppDelegate.swift */,
 				34FE8A371EC2BD32000CEC53 /* ViewController.swift */,
 				34FE8A4B1EC34C6E000CEC53 /* DetailViewController.swift */,
 				34FE8A491EC2C417000CEC53 /* QuoteTableViewCell.swift */,
+				34FE8A5F1EC57E20000CEC53 /* BarChartViewController.swift */,
+				34FE8A4F1EC56ADD000CEC53 /* SettingsTableViewController.swift */,
+				34FE8A511EC56AF1000CEC53 /* SettingsTableViewCell.swift */,
 				34FE8A391EC2BD32000CEC53 /* Main.storyboard */,
+				34FE8A4D1EC569D7000CEC53 /* Settings.swift */,
 				34FE8A3C1EC2BD32000CEC53 /* Assets.xcassets */,
 				34FE8A3E1EC2BD32000CEC53 /* LaunchScreen.storyboard */,
 				34FE8A411EC2BD32000CEC53 /* Info.plist */,
 			);
 			path = MotivationQuotes;
+			sourceTree = "<group>";
+		};
+		34FE8A561EC57C62000CEC53 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				34FE8A5B1EC57C62000CEC53 /* Charts.framework */,
+				34FE8A5D1EC57C62000CEC53 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		A1A14AC995D3C5DE396DDC4C /* Pods */ = {
@@ -92,6 +161,7 @@
 		A827090D969D4858D250E7D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34FE8A611EC5D85F000CEC53 /* Foundation.framework */,
 				34FE8A471EC2BF09000CEC53 /* Alamofire.framework */,
 				ECC5D684E03BA65BA7096360 /* Pods_MotivationQuotes.framework */,
 			);
@@ -111,10 +181,12 @@
 				34FE8A301EC2BD32000CEC53 /* Resources */,
 				B35E22CC8C728D94A55C8D10 /* [CP] Embed Pods Frameworks */,
 				B643C4E8D1B43E965AD46708 /* [CP] Copy Pods Resources */,
+				344A51431EC5DAF6009B461C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				344A51421EC5DAF6009B461C /* PBXTargetDependency */,
 			);
 			name = MotivationQuotes;
 			productName = MotivationQuotes;
@@ -149,12 +221,35 @@
 			mainGroup = 34FE8A291EC2BD32000CEC53;
 			productRefGroup = 34FE8A331EC2BD32000CEC53 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 34FE8A561EC57C62000CEC53 /* Products */;
+					ProjectRef = 34FE8A551EC57C62000CEC53 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				34FE8A311EC2BD32000CEC53 /* MotivationQuotes */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		34FE8A5B1EC57C62000CEC53 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 34FE8A5A1EC57C62000CEC53 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		34FE8A5D1EC57C62000CEC53 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 34FE8A5C1EC57C62000CEC53 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		34FE8A301EC2BD32000CEC53 /* Resources */ = {
@@ -224,12 +319,24 @@
 			files = (
 				34FE8A381EC2BD32000CEC53 /* ViewController.swift in Sources */,
 				34FE8A361EC2BD32000CEC53 /* AppDelegate.swift in Sources */,
+				34FE8A601EC57E20000CEC53 /* BarChartViewController.swift in Sources */,
+				34FE8A501EC56ADD000CEC53 /* SettingsTableViewController.swift in Sources */,
 				34FE8A4A1EC2C417000CEC53 /* QuoteTableViewCell.swift in Sources */,
+				34FE8A521EC56AF1000CEC53 /* SettingsTableViewCell.swift in Sources */,
 				34FE8A4C1EC34C6E000CEC53 /* DetailViewController.swift in Sources */,
+				34FE8A4E1EC569D7000CEC53 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		344A51421EC5DAF6009B461C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = 344A51411EC5DAF6009B461C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		34FE8A391EC2BD32000CEC53 /* Main.storyboard */ = {
@@ -348,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 07BB6334CDAEA1229D5E8777 /* Pods-MotivationQuotes.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4M9579ZP3U;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -367,6 +475,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 90FB7E70E9617C00B16AE917 /* Pods-MotivationQuotes.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4M9579ZP3U;
 				FRAMEWORK_SEARCH_PATHS = (

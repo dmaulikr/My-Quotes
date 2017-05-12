@@ -17,20 +17,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     var quotes: [[String:AnyObject]] = [[String:AnyObject]]()
-    var isLoading = false
+  
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
+        
+        let controller = storyboard?.instantiateViewController(withIdentifier: "settings")
+        self.navigationController!.pushViewController(controller!, animated: false)
+        
+    }
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if isLoading == false {
+    
             moodAlert()
-           isLoading = true
-        }
+            getQuotesFromService()
       
     }
 
@@ -103,21 +108,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func moodAlert() {
         
         
-        let alert = UIAlertController(title: "Hi!, How are you feeling today?", message: "Please select a mood.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "How are you feeling today?", message: "Please select a mood.", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Happy", style: .default) { (action) in
             
-             self.getQuotesFromService()
+            
             
             }
         let secondAction = UIAlertAction(title: "Sad", style: .default) { (action) in
             
-             self.getQuotesFromService()
+            
                 
             }
         let thirdAction = UIAlertAction(title: "Motivated", style: .default) { (action) in
             
-            self.getQuotesFromService()
+           
             
         }
         let settingsAction = UIAlertAction(title: "Settings", style: .default) { (action) in
@@ -170,9 +175,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerLocal))
+   //     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerLocal))
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(scheduleLocal))
+    //    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(scheduleLocal))
     
     }
     
