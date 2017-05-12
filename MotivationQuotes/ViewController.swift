@@ -17,8 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     var quotes: [[String:AnyObject]] = [[String:AnyObject]]()
-    
-    
+    var isLoading = false
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
@@ -28,32 +27,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
-        moodAlert()
-        
-        Alamofire.request("https://apimk.com/motivationalquotes?get_all_quote=yes").responseJSON { response in
-          
-            switch response.result {
-            case .success:
-                self.quotes = response.result.value as! [[String:AnyObject]]
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error)
-                }
-            }
-        
-        
-            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerLocal))
-     
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(scheduleLocal))
-        
-      
+        if isLoading == false {
+            moodAlert()
+           isLoading = true
         }
-    
-    
-    
+      
+    }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return quotes.count
@@ -62,7 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteTableViewCell", for: indexPath) as! QuoteTableViewCell
         
-        let quote = self.quotes[indexPath.row]
+        let quote = quotes[indexPath.row]
         cell.quoteLabel.text =  quote["quote"] as? String
         cell.categoryLabel.text = quote["category"] as? String
         cell.authorLabel.text = quote["author_name"] as? String
@@ -118,31 +98,96 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         center.add(request)
         
-        
-        
     }
 
     func moodAlert() {
         
-        let alert = UIAlertController(title: "Good Morning, How are you feeling today?", message: "Please choose a mood.", preferredStyle: .alert)
+        
+        let alert = UIAlertController(title: "Hi!, How are you feeling today?", message: "Please select a mood.", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Happy", style: .default) { (action) in
-            Alamofire.request("https://apimk.com/motivationalquotes?get_all_quote=yes").responseJSON { response in
-                
-                switch response.result {
-                case .success:
-                    self.quotes = response.result.value as! [[String:AnyObject]]
-                    self.tableView.reloadData()
-                case .failure(let error):
-                    print(error)
-                }
+            
+             self.getQuotesFromService()
+            
+            }
+        let secondAction = UIAlertAction(title: "Sad", style: .default) { (action) in
+            
+             self.getQuotesFromService()
                 
             }
+        let thirdAction = UIAlertAction(title: "Motivated", style: .default) { (action) in
+            
+            self.getQuotesFromService()
             
         }
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (action) in
+            
+            
+            
+            let datePicker: UIDatePicker = UIDatePicker()
+            
+            // Posiiton date picket within a view
+            datePicker.frame = CGRect(x: 10, y: 50, width: self.view.frame.width, height: 200)
+            
+            // Set some of UIDatePicker properties
+            datePicker.timeZone = NSTimeZone.local
+            datePicker.backgroundColor = UIColor.white
+            
+            // Add an event to call onDidChangeDate function when value is changed.
+            datePicker.addTarget(self, action: #selector(ViewController.datePickerValueChanged(_:)), for: .valueChanged)
+            
+            // Add DataPicker to the view
+            self.view.addSubview(datePicker)
+            
+            
+            
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        
         alert.addAction(action)
+        alert.addAction(secondAction)
+        alert.addAction(thirdAction)
+        alert.addAction(settingsAction)
+        alert.addAction(cancelAction)
+       
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    func getQuotesFromService() {
+        
+        Alamofire.request("https://apimk.com/motivationalquotes?get_all_quote=yes").responseJSON { response in
+            
+            switch response.result {
+            case .success:
+                self.quotes = response.result.value as! [[String:AnyObject]]
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerLocal))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(scheduleLocal))
+    
+    }
+    
+    func datePickerValueChanged(_ sender: UIDatePicker){
+        
+        // Create date formatter
+        let dateFormatter: DateFormatter = DateFormatter()
+        
+        // Set date format
+        dateFormatter.dateFormat = "MM/dd/yyyy hh:mm a"
+        
+        // Apply date format
+        let selectedDate: String = dateFormatter.string(from: sender.date)
+        
+        print("Selected value \(selectedDate)")
     }
 
 }

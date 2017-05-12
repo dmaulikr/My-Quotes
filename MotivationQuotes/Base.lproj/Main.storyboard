@@ -37,7 +37,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="168"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hpk-hS-ROJ" id="kfE-30-MVR">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="168"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="167.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="t8V-MN-ChE">
@@ -118,7 +118,7 @@
                     <connections>
                         <outlet property="datePicker" destination="mLt-JT-fNi" id="sFz-Ga-iRj"/>
                         <outlet property="tableView" destination="9iw-f9-paD" id="9Sx-Sb-Wv0"/>
-                        <segue destination="pSa-i3-EAu" kind="show" identifier="details" id="FXk-gm-ew4"/>
+                        <segue destination="pSa-i3-EAu" kind="presentation" identifier="details" id="FXk-gm-ew4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -148,7 +148,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2l-FJ-gkg">
-                                <rect key="frame" x="16" y="102" width="288" height="164"/>
+                                <rect key="frame" x="16" y="58" width="288" height="208"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -160,13 +160,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3l-WF-Hqt">
-                                <rect key="frame" x="170" y="52" width="134" height="28"/>
+                                <rect key="frame" x="170" y="8" width="134" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lq-Z7-4ee">
-                                <rect key="frame" x="83" y="52" width="79" height="28"/>
+                                <rect key="frame" x="83" y="8" width="79" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="79" id="8NA-Ac-XYy"/>
                                     <constraint firstAttribute="height" constant="28" id="aPK-FL-RDs"/>
@@ -175,12 +175,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3o7-bB-Akc">
+                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="yjn-o9-uif"/>
+                                    <tabBarItem title="Share" id="fXx-XM-Okb"/>
+                                    <tabBarItem systemItem="more" id="hLK-TW-tdG"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LCD-Iq-V3Y" firstAttribute="firstBaseline" secondItem="ZeJ-nm-8UM" secondAttribute="firstBaseline" id="0MW-jq-NyM"/>
                             <constraint firstItem="V3l-WF-Hqt" firstAttribute="trailing" secondItem="aZl-Lu-aXy" secondAttribute="trailingMargin" id="58y-vP-YoM"/>
                             <constraint firstItem="c2l-FJ-gkg" firstAttribute="top" secondItem="1lq-Z7-4ee" secondAttribute="bottom" constant="22" id="7x4-zK-9Jx"/>
+                            <constraint firstItem="2UL-sa-vQ7" firstAttribute="top" secondItem="3o7-bB-Akc" secondAttribute="bottom" id="GjK-C8-YSA"/>
                             <constraint firstItem="1lq-Z7-4ee" firstAttribute="baseline" secondItem="V3l-WF-Hqt" secondAttribute="baseline" id="K1D-Zz-R6b"/>
                             <constraint firstItem="c2l-FJ-gkg" firstAttribute="leading" secondItem="aZl-Lu-aXy" secondAttribute="leadingMargin" id="LYE-8i-r6d"/>
                             <constraint firstItem="c2l-FJ-gkg" firstAttribute="trailing" secondItem="ZeJ-nm-8UM" secondAttribute="trailing" id="N3W-VF-4tW"/>
@@ -188,8 +198,10 @@
                             <constraint firstItem="LCD-Iq-V3Y" firstAttribute="baseline" secondItem="ZeJ-nm-8UM" secondAttribute="baseline" id="ZhQ-g5-pTg"/>
                             <constraint firstItem="c2l-FJ-gkg" firstAttribute="leading" secondItem="LCD-Iq-V3Y" secondAttribute="leading" id="b73-Xa-el5"/>
                             <constraint firstItem="1lq-Z7-4ee" firstAttribute="top" secondItem="SrC-qi-a3i" secondAttribute="bottom" constant="8" symbolic="YES" id="d3O-TU-jGR"/>
+                            <constraint firstAttribute="trailing" secondItem="3o7-bB-Akc" secondAttribute="trailing" id="gdS-NB-4QC"/>
                             <constraint firstItem="2UL-sa-vQ7" firstAttribute="top" secondItem="LCD-Iq-V3Y" secondAttribute="bottom" constant="198" id="jnZ-o6-C84"/>
                             <constraint firstItem="V3l-WF-Hqt" firstAttribute="trailing" secondItem="c2l-FJ-gkg" secondAttribute="trailing" id="nYi-qi-gvl"/>
+                            <constraint firstItem="3o7-bB-Akc" firstAttribute="leading" secondItem="aZl-Lu-aXy" secondAttribute="leading" id="owl-Ze-vjv"/>
                             <constraint firstItem="LCD-Iq-V3Y" firstAttribute="top" secondItem="c2l-FJ-gkg" secondAttribute="bottom" constant="72" id="r2p-BH-pRZ"/>
                             <constraint firstItem="1lq-Z7-4ee" firstAttribute="firstBaseline" secondItem="V3l-WF-Hqt" secondAttribute="firstBaseline" id="rYe-uy-Gcg"/>
                             <constraint firstItem="1lq-Z7-4ee" firstAttribute="leading" secondItem="aZl-Lu-aXy" secondAttribute="leadingMargin" constant="67" id="uYZ-iD-GOZ"/>
