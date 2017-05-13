@@ -6,19 +6,19 @@ This is an app about self healing and motivation.  You will be able to track you
 
 
 The following features are implemented:
-*[*] RESTful API.
-*[*] 3rd party libraries.
-*[*] Local notifications.
-*[*] Mood Tracking.
+* [*] RESTful API.
+* [*] 3rd party libraries.
+* [*] Local notifications.
+* [*] Mood Tracking.
 
 The following **additional** features will be implemented:
 
-*[ ] Favorites for the quotes.
-*[ ]Share to social media. 
+* [ ] Favorites for the quotes.
+* [ ]Share to social media. 
 
 The following librarie was used:
-*[*] Alamofire for networking.
-*[*] Charts by: Daniel Gindi.
+* [*] Alamofire for networking.
+* [*] Charts by: Daniel Gindi.
 
 
 
