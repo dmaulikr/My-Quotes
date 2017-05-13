@@ -14,7 +14,7 @@ The following features are implemented:
 The following **additional** features will be implemented:
 
 * [ ] Favorites for the quotes.
-* [ ]Share to social media. 
+* [ ] Share to social media. 
 
 The following librarie was used:
 * [*] Alamofire for networking.
